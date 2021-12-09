@@ -1,0 +1,352 @@
+<edmx:Edmx xmlns:edmx="http://schemas.microsoft.com/ado/2007/06/edmx" xmlns:sap="http://www.sap.com/Protocols/SAPData" Version="1.0">
+<edmx:DataServices xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" m:DataServiceVersion="2.0">
+<Schema xmlns:d="http://schemas.microsoft.com/ado/2007/08/dataservices" xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" xmlns="http://schemas.microsoft.com/ado/2008/09/edm" Namespace="h2o">
+<EntityType Name="FlowmetersType">
+<Key>
+<PropertyRef Name="FmID"/>
+</Key>
+<Property Name="FmID" Type="Edm.String" Nullable="false" MaxLength="16"/>
+<Property Name="FmDesc" Type="Edm.String" MaxLength="80"/>
+<Property Name="FmType" Type="Edm.String" MaxLength="40"/>
+<Property Name="FmZone" Type="Edm.String" MaxLength="40"/>
+<Property Name="FmCity" Type="Edm.String" MaxLength="40"/>
+<Property Name="FmState" Type="Edm.String" MaxLength="40"/>
+<Property Name="FmCountry" Type="Edm.String" MaxLength="40"/>
+<Property Name="FmLatitude" Type="Edm.String" MaxLength="40"/>
+<Property Name="FmLongitude" Type="Edm.String" MaxLength="40"/>
+<Property Name="SourceFmID" Type="Edm.String" MaxLength="16"/>
+<Property Name="TechnicianID" Type="Edm.String" MaxLength="4"/>
+<Property Name="CreatedBy" Type="Edm.String" MaxLength="40"/>
+<Property Name="CreatedTimestamp" Type="Edm.DateTime"/>
+<Property Name="CURRENCY" Type="Edm.String" MaxLength="3"/>
+<Property Name="WATERFLOWUOM" Type="Edm.String" MaxLength="12"/>
+<Property Name="END_BRANCH" Type="Edm.String" MaxLength="1"/>
+<NavigationProperty Name="Nav_ParentToChildFlowmeters" Relationship="h2o.Assoc_ParentToChildFlowmetersType" FromRole="FlowmetersPrincipal" ToRole="ChildFlowmetersDependent"/>
+</EntityType>
+<EntityType Name="ChildFlowmetersType">
+<Key>
+<PropertyRef Name="FmID"/>
+</Key>
+<Property Name="FmID" Type="Edm.String" Nullable="false" MaxLength="16"/>
+<Property Name="FmDesc" Type="Edm.String" MaxLength="80"/>
+<Property Name="FmType" Type="Edm.String" MaxLength="40"/>
+<Property Name="FmZone" Type="Edm.String" MaxLength="40"/>
+<Property Name="FmCity" Type="Edm.String" MaxLength="40"/>
+<Property Name="FmState" Type="Edm.String" MaxLength="40"/>
+<Property Name="FmCountry" Type="Edm.String" MaxLength="40"/>
+<Property Name="FmLatitude" Type="Edm.String" MaxLength="40"/>
+<Property Name="FmLongitude" Type="Edm.String" MaxLength="40"/>
+<Property Name="SourceFmID" Type="Edm.String" MaxLength="16"/>
+<Property Name="TechnicianID" Type="Edm.String" MaxLength="4"/>
+<Property Name="CreatedBy" Type="Edm.String" MaxLength="40"/>
+<Property Name="CreatedTimestamp" Type="Edm.DateTime"/>
+<Property Name="CURRENCY" Type="Edm.String" MaxLength="3"/>
+<Property Name="WATERFLOWUOM" Type="Edm.String" MaxLength="12"/>
+<Property Name="END_BRANCH" Type="Edm.String" MaxLength="1"/>
+<NavigationProperty Name="Nav_ChildToMainFlowmeters" Relationship="h2o.Assoc_ChildToMainFlowmetersType" FromRole="ChildFlowmetersPrincipal" ToRole="FlowmetersDependent"/>
+</EntityType>
+<EntityType Name="TechniciansType">
+<Key>
+<PropertyRef Name="TechID"/>
+</Key>
+<Property Name="TechID" Type="Edm.String" Nullable="false" MaxLength="4"/>
+<Property Name="TechFirstname" Type="Edm.String" MaxLength="80"/>
+<Property Name="TechLastname" Type="Edm.String" MaxLength="80"/>
+<Property Name="TechRole" Type="Edm.String" MaxLength="80"/>
+<Property Name="TechEmail" Type="Edm.String" MaxLength="100"/>
+<Property Name="TechMobile" Type="Edm.String" MaxLength="80"/>
+<Property Name="CreatedBy" Type="Edm.String" MaxLength="40"/>
+<Property Name="CreatedTimestamp" Type="Edm.DateTime"/>
+</EntityType>
+<EntityType Name="ConsumerMetersType">
+<Key>
+<PropertyRef Name="ConFmID"/>
+</Key>
+<Property Name="ConFmID" Type="Edm.String" Nullable="false" MaxLength="16"/>
+<Property Name="ConFmType" Type="Edm.String" MaxLength="40"/>
+<Property Name="ConFirstname" Type="Edm.String" MaxLength="80"/>
+<Property Name="ConLastname" Type="Edm.String" MaxLength="80"/>
+<Property Name="ConAddress1" Type="Edm.String" MaxLength="80"/>
+<Property Name="ConAddress2" Type="Edm.String" MaxLength="80"/>
+<Property Name="ConFmZone" Type="Edm.String" MaxLength="40"/>
+<Property Name="ConFmCity" Type="Edm.String" MaxLength="40"/>
+<Property Name="ConFmState" Type="Edm.String" MaxLength="40"/>
+<Property Name="ConFmCountry" Type="Edm.String" MaxLength="40"/>
+<Property Name="ConHouseArea" Type="Edm.String" MaxLength="16"/>
+<Property Name="ConHouseAreaUoM" Type="Edm.String" MaxLength="6"/>
+<Property Name="ConHouseNoOfMem" Type="Edm.String" MaxLength="6"/>
+<Property Name="AccumCons" Type="Edm.Decimal" Precision="10" Scale="2"/>
+<Property Name="AccumConsUoM" Type="Edm.String" MaxLength="6"/>
+<Property Name="WaterQuality" Type="Edm.String" MaxLength="20"/>
+<Property Name="SourceFmID" Type="Edm.String" MaxLength="16"/>
+<Property Name="CreatedBy" Type="Edm.String" MaxLength="40"/>
+<Property Name="CreatedTimestamp" Type="Edm.DateTime"/>
+</EntityType>
+<EntityType Name="NewCustAdditionsType">
+<Key>
+<PropertyRef Name="CustAddKey"/>
+</Key>
+<Property Name="CustAddKey" Type="Edm.String" Nullable="false" MaxLength="16"/>
+<Property Name="Board" Type="Edm.String" MaxLength="80"/>
+<Property Name="Zone" Type="Edm.String" MaxLength="40"/>
+<Property Name="City" Type="Edm.String" MaxLength="40"/>
+<Property Name="State" Type="Edm.String" MaxLength="40"/>
+<Property Name="Country" Type="Edm.String" MaxLength="40"/>
+<Property Name="Month" Type="Edm.String" MaxLength="3"/>
+<Property Name="Year" Type="Edm.String" MaxLength="4"/>
+<Property Name="NewCustomerCount" Type="Edm.Decimal" Precision="10" Scale="0"/>
+<Property Name="RevIncrease" Type="Edm.Decimal" Precision="10" Scale="2"/>
+<Property Name="Currency" Type="Edm.String" MaxLength="3"/>
+<Property Name="CreatedBy" Type="Edm.String" MaxLength="40"/>
+<Property Name="CreatedTimestamp" Type="Edm.DateTime"/>
+</EntityType>
+<EntityType Name="PhysicalLeakageType">
+<Key>
+<PropertyRef Name="LeakageKey"/>
+</Key>
+<Property Name="LeakageKey" Type="Edm.String" Nullable="false" MaxLength="16"/>
+<Property Name="Board" Type="Edm.String" MaxLength="80"/>
+<Property Name="Zone" Type="Edm.String" MaxLength="40"/>
+<Property Name="City" Type="Edm.String" MaxLength="40"/>
+<Property Name="State" Type="Edm.String" MaxLength="40"/>
+<Property Name="Country" Type="Edm.String" MaxLength="40"/>
+<Property Name="Month" Type="Edm.String" MaxLength="3"/>
+<Property Name="Year" Type="Edm.String" MaxLength="4"/>
+<Property Name="DetectedLeaksCount" Type="Edm.Decimal" Precision="10" Scale="0"/>
+<Property Name="FixedLeaksCount" Type="Edm.Decimal" Precision="10" Scale="0"/>
+<Property Name="SavedWater" Type="Edm.Decimal" Precision="10" Scale="2"/>
+<Property Name="SavedWaterUoM" Type="Edm.String" MaxLength="6"/>
+<Property Name="NewCustomerCount" Type="Edm.Decimal" Precision="10" Scale="0"/>
+<Property Name="RevIncrease" Type="Edm.Decimal" Precision="10" Scale="2"/>
+<Property Name="Currency" Type="Edm.String" MaxLength="3"/>
+<Property Name="CreatedBy" Type="Edm.String" MaxLength="40"/>
+<Property Name="CreatedTimestamp" Type="Edm.DateTime"/>
+</EntityType>
+<EntityType Name="FlowvaluesType">
+<Key>
+<PropertyRef Name="ID"/>
+</Key>
+<Property Name="ID" Type="Edm.String" Nullable="false" MaxLength="40" sap:filterable="false"/>
+<Property Name="C_TIMESTAMP" Type="Edm.DateTime"/>
+<Property Name="C_FLOWMETERID" Type="Edm.String" Nullable="false" MaxLength="16"/>
+<Property Name="C_FLOWVALUE" Type="Edm.Decimal" Precision="10" Scale="2"/>
+</EntityType>
+<EntityType Name="H2OConLeakageDataType">
+<Key>
+<PropertyRef Name="FmID"/>
+<PropertyRef Name="Timestamp"/>
+</Key>
+<Property Name="FmID" Type="Edm.String" Nullable="false" MaxLength="16" sap:label="Flowmeter"/>
+<Property Name="Timestamp" Type="Edm.DateTime" Nullable="false" sap:label="Timestamp"/>
+<Property Name="FmDesc" Type="Edm.String" MaxLength="80" sap:label="Flowmeter Desc"/>
+<Property Name="FmType" Type="Edm.String" MaxLength="40" sap:label="Type"/>
+<Property Name="FmZone" Type="Edm.String" MaxLength="40" sap:label="Zone"/>
+<Property Name="FmCity" Type="Edm.String" MaxLength="40" sap:label="City"/>
+<Property Name="FmState" Type="Edm.String" MaxLength="40" sap:label="State"/>
+<Property Name="FmCountry" Type="Edm.String" MaxLength="40" sap:label="Country"/>
+<Property Name="FmLatitude" Type="Edm.String" MaxLength="40" sap:label="Latitude"/>
+<Property Name="FmLongitude" Type="Edm.String" MaxLength="40" sap:label="Longitude"/>
+<Property Name="SourceFmID" Type="Edm.String" MaxLength="16" sap:label="SourceFmID"/>
+<Property Name="TechnicianID" Type="Edm.String" MaxLength="4" sap:label="TechnicianID"/>
+<Property Name="Currency" Type="Edm.String" MaxLength="3" sap:semantics="currency-code" sap:label="Currency"/>
+<Property Name="WaterFlowUoM" Type="Edm.String" MaxLength="12" sap:semantics="unit-of-measure" sap:label="WaterFlowUoM"/>
+<Property Name="Month" Type="Edm.String" MaxLength="12" sap:label="Month"/>
+<Property Name="Date" Type="Edm.String" MaxLength="12" sap:label="Date"/>
+<Property Name="Supply" Type="Edm.Decimal" Precision="10" Scale="2" sap:label="Supply" sap:unit="WaterFlowUoM"/>
+<Property Name="Consumption" Type="Edm.Double" sap:label="Consumption" sap:unit="WaterFlowUoM"/>
+<Property Name="Leakage" Type="Edm.Double" sap:label="Leakage" sap:unit="WaterFlowUoM"/>
+<Property Name="LeakPercentage" Type="Edm.Decimal" Precision="34" Scale="2" sap:label="LeakPercentage"/>
+<Property Name="RevenueLoss" Type="Edm.Double" sap:label="RevenueLoss" sap:unit="Currency"/>
+</EntityType>
+<EntityType Name="H2OLatestLeakageDataType">
+<Key>
+<PropertyRef Name="FmID"/>
+</Key>
+<Property Name="FmID" Type="Edm.String" Nullable="false" MaxLength="16" sap:label="FmID"/>
+<Property Name="Timestamp" Type="Edm.DateTime" sap:label="Timestamp"/>
+<Property Name="FmDesc" Type="Edm.String" MaxLength="80" sap:label="FmDesc"/>
+<Property Name="FmType" Type="Edm.String" MaxLength="40" sap:label="FmType"/>
+<Property Name="FmZone" Type="Edm.String" MaxLength="40" sap:label="FmZone"/>
+<Property Name="FmCity" Type="Edm.String" MaxLength="40" sap:label="FmCity"/>
+<Property Name="FmState" Type="Edm.String" MaxLength="40" sap:label="FmState"/>
+<Property Name="FmCountry" Type="Edm.String" MaxLength="40" sap:label="FmCountry"/>
+<Property Name="FmLatitude" Type="Edm.String" MaxLength="40" sap:label="FmLatitude"/>
+<Property Name="FmLongitude" Type="Edm.String" MaxLength="40" sap:label="FmLongitude"/>
+<Property Name="SourceFmID" Type="Edm.String" MaxLength="16" sap:label="SourceFmID"/>
+<Property Name="TechnicianID" Type="Edm.String" MaxLength="4" sap:label="TechnicianID"/>
+<Property Name="Currency" Type="Edm.String" MaxLength="3" sap:label="Currency"/>
+<Property Name="WaterFlowUoM" Type="Edm.String" MaxLength="12" sap:label="WaterFlowUoM"/>
+<Property Name="Supply" Type="Edm.Double" sap:label="Supply"/>
+<Property Name="Consumption" Type="Edm.Double" sap:label="Consumption"/>
+<Property Name="Leakage" Type="Edm.Double" sap:label="Leakage"/>
+<Property Name="LeakPercentage" Type="Edm.Decimal" Precision="34" Scale="2" sap:label="LeakPercentage"/>
+<Property Name="RevenueLoss" Type="Edm.Double" sap:label="RevenueLoss"/>
+</EntityType>
+<EntityType Name="H2OFlowmeterDataType">
+<Key>
+<PropertyRef Name="FmID"/>
+</Key>
+<Property Name="FmID" Type="Edm.String" Nullable="false" MaxLength="16" sap:label="Flowmeter ID"/>
+<Property Name="Timestamp" Type="Edm.DateTime" sap:label="Timestamp"/>
+<Property Name="FmDesc" Type="Edm.String" MaxLength="80" sap:label="FmDesc"/>
+<Property Name="FmType" Type="Edm.String" MaxLength="40" sap:label="FmType"/>
+<Property Name="FmZone" Type="Edm.String" MaxLength="40" sap:label="FmZone"/>
+<Property Name="FmCity" Type="Edm.String" MaxLength="40" sap:label="FmCity"/>
+<Property Name="FmState" Type="Edm.String" MaxLength="40" sap:label="FmState"/>
+<Property Name="FmCountry" Type="Edm.String" MaxLength="40" sap:label="FmCountry"/>
+<Property Name="FmLatitude" Type="Edm.String" MaxLength="40" sap:label="FmLatitude"/>
+<Property Name="FmLongitude" Type="Edm.String" MaxLength="40" sap:label="FmLongitude"/>
+<Property Name="SourceFmID" Type="Edm.String" MaxLength="16" sap:label="SourceFmID"/>
+<Property Name="TechnicianID" Type="Edm.String" MaxLength="4" sap:label="TechnicianID"/>
+<Property Name="Currency" Type="Edm.String" MaxLength="3" sap:semantics="currency-code" sap:label="Currency"/>
+<Property Name="WaterFlowUoM" Type="Edm.String" MaxLength="12" sap:semantics="unit-of-measure" sap:label="WaterFlowUoM"/>
+<Property Name="SourceFmDesc" Type="Edm.String" MaxLength="80" sap:label="SourceFmDesc"/>
+<Property Name="SourceFmLatitude" Type="Edm.String" MaxLength="40" sap:label="SourceFmLatitude"/>
+<Property Name="SourceFmLongitude" Type="Edm.String" MaxLength="40" sap:label="SourceFmLongitude"/>
+<Property Name="Supply" Type="Edm.Double" sap:label="Supply" sap:unit="WaterFlowUoM"/>
+<Property Name="Consumption" Type="Edm.Double" sap:label="Consumption" sap:unit="WaterFlowUoM"/>
+<Property Name="Leakage" Type="Edm.Double" sap:label="Leakage" sap:unit="WaterFlowUoM"/>
+<Property Name="LeakPercentage" Type="Edm.Decimal" Precision="34" Scale="2" sap:label="LeakPercentage"/>
+<Property Name="RevenueLoss" Type="Edm.Double" sap:label="RevenueLoss" sap:unit="Currency"/>
+</EntityType>
+<EntityType Name="H2OCityNewConnectionsType">
+<Key>
+<PropertyRef Name="City"/>
+</Key>
+<Property Name="City" Type="Edm.String" Nullable="false" MaxLength="40" sap:label="City"/>
+<Property Name="Currency" Type="Edm.String" MaxLength="3" sap:label="Currency"/>
+<Property Name="NewCustomerCount" Type="Edm.Decimal" Precision="10" Scale="0" sap:label="New Customer Count"/>
+<Property Name="RevIncrease" Type="Edm.Decimal" Precision="10" Scale="2" sap:label="Rev Increase"/>
+</EntityType>
+<EntityType Name="H2OZoneNewConnectionsType">
+<Key>
+<PropertyRef Name="Board"/>
+<PropertyRef Name="Zone"/>
+</Key>
+<Property Name="Board" Type="Edm.String" Nullable="false" MaxLength="80" sap:label="Board"/>
+<Property Name="Zone" Type="Edm.String" Nullable="false" MaxLength="40" sap:label="Zone"/>
+<Property Name="Currency" Type="Edm.String" MaxLength="3" sap:label="Currency"/>
+<Property Name="NewCustomerCount" Type="Edm.Decimal" Precision="10" Scale="0" sap:label="New Customer Accounts"/>
+<Property Name="RevIncrease" Type="Edm.Decimal" Precision="10" Scale="2" sap:label="Revenue Increase"/>
+</EntityType>
+<EntityType Name="H2OCityLeakagesType">
+<Key>
+<PropertyRef Name="City"/>
+</Key>
+<Property Name="City" Type="Edm.String" Nullable="false" MaxLength="40" sap:label="City"/>
+<Property Name="SavedWaterUoM" Type="Edm.String" MaxLength="6" sap:label="SavedWaterUoM"/>
+<Property Name="Currency" Type="Edm.String" MaxLength="3" sap:label="Currency"/>
+<Property Name="DetectedLeaksCount" Type="Edm.Decimal" Precision="10" Scale="0" sap:label="DetectedLeaksCount"/>
+<Property Name="FixedLeaksCount" Type="Edm.Decimal" Precision="10" Scale="0" sap:label="FixedLeaksCount"/>
+<Property Name="SavedWater" Type="Edm.Decimal" Precision="10" Scale="2" sap:label="SavedWater"/>
+<Property Name="SavedRevenue" Type="Edm.Decimal" Precision="20" Scale="0" sap:label="SavedRevenue"/>
+</EntityType>
+<EntityType Name="H2OAdminNewConnectionsType">
+<Key>
+<PropertyRef Name="ID"/>
+</Key>
+<Property Name="ID" Type="Edm.String" Nullable="false" MaxLength="40" sap:filterable="false"/>
+<Property Name="Board" Type="Edm.String" MaxLength="80" sap:label="Board"/>
+<Property Name="Zone" Type="Edm.String" MaxLength="40" sap:label="Zone"/>
+<Property Name="City" Type="Edm.String" MaxLength="40" sap:label="City"/>
+<Property Name="State" Type="Edm.String" MaxLength="40" sap:label="State"/>
+<Property Name="Country" Type="Edm.String" MaxLength="40" sap:label="Country"/>
+<Property Name="Month" Type="Edm.String" MaxLength="3" sap:label="Month"/>
+<Property Name="Year" Type="Edm.String" MaxLength="4" sap:label="Year"/>
+<Property Name="Currency" Type="Edm.String" MaxLength="3" sap:semantics="currency-code" sap:label="Currency"/>
+<Property Name="CustAddKey" Type="Edm.String" MaxLength="16" sap:label="CustAddKey"/>
+<Property Name="NewCustomerCount" Type="Edm.Decimal" Precision="10" Scale="0" sap:label="New Customer Accounts"/>
+<Property Name="RevIncrease" Type="Edm.Decimal" Precision="10" Scale="2" sap:label="Net Revenue Increase" sap:unit="Currency"/>
+</EntityType>
+<EntityType Name="H2OLatestFlowValuesType">
+<Key>
+<PropertyRef Name="ID"/>
+</Key>
+<Property Name="ID" Type="Edm.String" Nullable="false" MaxLength="40" sap:filterable="false"/>
+<Property Name="FmID" Type="Edm.String" MaxLength="16" sap:label="Flowmeter ID"/>
+<Property Name="Timestamp" Type="Edm.DateTime" sap:label="Timestamp"/>
+<Property Name="FmDesc" Type="Edm.String" MaxLength="80" sap:label="FmDesc"/>
+<Property Name="FmType" Type="Edm.String" MaxLength="40" sap:label="FmType"/>
+<Property Name="FmZone" Type="Edm.String" MaxLength="40" sap:label="FmZone"/>
+<Property Name="FmCity" Type="Edm.String" MaxLength="40" sap:label="FmCity"/>
+<Property Name="FmState" Type="Edm.String" MaxLength="40" sap:label="FmState"/>
+<Property Name="FmCountry" Type="Edm.String" MaxLength="40" sap:label="FmCountry"/>
+<Property Name="FmLatitude" Type="Edm.String" MaxLength="40" sap:label="FmLatitude"/>
+<Property Name="FmLongitude" Type="Edm.String" MaxLength="40" sap:label="FmLongitude"/>
+<Property Name="SourceFmID" Type="Edm.String" MaxLength="16" sap:label="SourceFmID"/>
+<Property Name="TechnicianID" Type="Edm.String" MaxLength="4" sap:label="TechnicianID"/>
+<Property Name="Currency" Type="Edm.String" MaxLength="3" sap:semantics="currency-code" sap:label="Currency"/>
+<Property Name="WaterFlowUoM" Type="Edm.String" MaxLength="12" sap:semantics="unit-of-measure" sap:label="WaterFlowUoM"/>
+<Property Name="SourceFmDesc" Type="Edm.String" MaxLength="80" sap:label="SourceFmDesc"/>
+<Property Name="SourceFmLatitude" Type="Edm.String" MaxLength="40" sap:label="SourceFmLatitude"/>
+<Property Name="SourceFmLongitude" Type="Edm.String" MaxLength="40" sap:label="SourceFmLongitude"/>
+<Property Name="Supply" Type="Edm.Double" sap:label="Supply" sap:unit="WaterFlowUoM"/>
+<Property Name="Consumption" Type="Edm.Double" sap:label="Consumption" sap:unit="WaterFlowUoM"/>
+<Property Name="Leakage" Type="Edm.Double" sap:label="Leakage" sap:unit="WaterFlowUoM"/>
+<Property Name="LeakPercentage" Type="Edm.Decimal" Precision="34" Scale="2" sap:label="LeakPercentage"/>
+<Property Name="RevenueLoss" Type="Edm.Double" sap:label="RevenueLoss" sap:unit="Currency"/>
+</EntityType>
+<EntityType Name="H2OConsolidatedFlowValuesType">
+<Key>
+<PropertyRef Name="ID"/>
+</Key>
+<Property Name="ID" Type="Edm.String" Nullable="false" MaxLength="40" sap:filterable="false"/>
+<Property Name="FmID" Type="Edm.String" MaxLength="16" sap:label="Flowmeter"/>
+<Property Name="Timestamp" Type="Edm.DateTime" sap:label="Timestamp"/>
+<Property Name="FmDesc" Type="Edm.String" MaxLength="80" sap:label="Flowmeter Desc"/>
+<Property Name="FmType" Type="Edm.String" MaxLength="40" sap:label="Type"/>
+<Property Name="FmZone" Type="Edm.String" MaxLength="40" sap:label="Zone"/>
+<Property Name="FmCity" Type="Edm.String" MaxLength="40" sap:label="City"/>
+<Property Name="FmState" Type="Edm.String" MaxLength="40" sap:label="State"/>
+<Property Name="FmCountry" Type="Edm.String" MaxLength="40" sap:label="Country"/>
+<Property Name="FmLatitude" Type="Edm.String" MaxLength="40" sap:label="Latitude"/>
+<Property Name="FmLongitude" Type="Edm.String" MaxLength="40" sap:label="Longitude"/>
+<Property Name="SourceFmID" Type="Edm.String" MaxLength="16" sap:label="SourceFmID"/>
+<Property Name="TechnicianID" Type="Edm.String" MaxLength="4" sap:label="TechnicianID"/>
+<Property Name="Currency" Type="Edm.String" MaxLength="3" sap:semantics="currency-code" sap:label="Currency"/>
+<Property Name="WaterFlowUoM" Type="Edm.String" MaxLength="12" sap:semantics="unit-of-measure" sap:label="WaterFlowUoM"/>
+<Property Name="Month" Type="Edm.String" MaxLength="12" sap:label="Month"/>
+<Property Name="Date" Type="Edm.String" MaxLength="12" sap:label="Date"/>
+<Property Name="Supply" Type="Edm.Decimal" Precision="10" Scale="2" sap:label="Supply" sap:unit="WaterFlowUoM"/>
+<Property Name="Consumption" Type="Edm.Double" sap:label="Consumption" sap:unit="WaterFlowUoM"/>
+<Property Name="Leakage" Type="Edm.Double" sap:label="Leakage" sap:unit="WaterFlowUoM"/>
+<Property Name="LeakPercentage" Type="Edm.Decimal" Precision="34" Scale="2" sap:label="LeakPercentage"/>
+<Property Name="RevenueLoss" Type="Edm.Double" sap:label="RevenueLoss" sap:unit="Currency"/>
+</EntityType>
+<Association Name="Assoc_ChildToMainFlowmetersType">
+<End Type="h2o.ChildFlowmetersType" Role="ChildFlowmetersPrincipal" Multiplicity="1"/>
+<End Type="h2o.FlowmetersType" Role="FlowmetersDependent" Multiplicity="1"/>
+</Association>
+<Association Name="Assoc_ParentToChildFlowmetersType">
+<End Type="h2o.FlowmetersType" Role="FlowmetersPrincipal" Multiplicity="1"/>
+<End Type="h2o.ChildFlowmetersType" Role="ChildFlowmetersDependent" Multiplicity="*"/>
+</Association>
+<EntityContainer Name="h2o" m:IsDefaultEntityContainer="true">
+<EntitySet Name="Flowmeters" EntityType="h2o.FlowmetersType"/>
+<EntitySet Name="ChildFlowmeters" EntityType="h2o.ChildFlowmetersType"/>
+<EntitySet Name="Technicians" EntityType="h2o.TechniciansType"/>
+<EntitySet Name="ConsumerMeters" EntityType="h2o.ConsumerMetersType"/>
+<EntitySet Name="NewCustAdditions" EntityType="h2o.NewCustAdditionsType"/>
+<EntitySet Name="PhysicalLeakage" EntityType="h2o.PhysicalLeakageType"/>
+<EntitySet Name="Flowvalues" EntityType="h2o.FlowvaluesType"/>
+<EntitySet Name="H2OConLeakageData" EntityType="h2o.H2OConLeakageDataType"/>
+<EntitySet Name="H2OLatestLeakageData" EntityType="h2o.H2OLatestLeakageDataType"/>
+<EntitySet Name="H2OFlowmeterData" EntityType="h2o.H2OFlowmeterDataType"/>
+<EntitySet Name="H2OCityNewConnections" EntityType="h2o.H2OCityNewConnectionsType"/>
+<EntitySet Name="H2OZoneNewConnections" EntityType="h2o.H2OZoneNewConnectionsType"/>
+<EntitySet Name="H2OCityLeakages" EntityType="h2o.H2OCityLeakagesType"/>
+<EntitySet Name="H2OAdminNewConnections" EntityType="h2o.H2OAdminNewConnectionsType"/>
+<EntitySet Name="H2OLatestFlowValues" EntityType="h2o.H2OLatestFlowValuesType"/>
+<EntitySet Name="H2OConsolidatedFlowValues" EntityType="h2o.H2OConsolidatedFlowValuesType"/>
+<AssociationSet Name="Assoc_ChildToMainFlowmeters" Association="h2o.Assoc_ChildToMainFlowmetersType">
+<End Role="ChildFlowmetersPrincipal" EntitySet="ChildFlowmeters"/>
+<End Role="FlowmetersDependent" EntitySet="Flowmeters"/>
+</AssociationSet>
+<AssociationSet Name="Assoc_ParentToChildFlowmeters" Association="h2o.Assoc_ParentToChildFlowmetersType">
+<End Role="FlowmetersPrincipal" EntitySet="Flowmeters"/>
+<End Role="ChildFlowmetersDependent" EntitySet="ChildFlowmeters"/>
+</AssociationSet>
+</EntityContainer>
+</Schema>
+</edmx:DataServices>
+</edmx:Edmx>

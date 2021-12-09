@@ -1,0 +1,1211 @@
+{
+  "meta": {
+    "creator": "cds-dk 4.6.4"
+  },
+  "$version": "2.0",
+  "definitions": {
+    "h2o": {
+      "kind": "service",
+      "@cds.external": true
+    },
+    "h2o.Flowmeters": {
+      "kind": "entity",
+      "@cds.persistence.skip": true,
+      "elements": {
+        "FmID": {
+          "key": true,
+          "type": "cds.String",
+          "length": 16
+        },
+        "FmDesc": {
+          "type": "cds.String",
+          "length": 80
+        },
+        "FmType": {
+          "type": "cds.String",
+          "length": 40
+        },
+        "FmZone": {
+          "type": "cds.String",
+          "length": 40
+        },
+        "FmCity": {
+          "type": "cds.String",
+          "length": 40
+        },
+        "FmState": {
+          "type": "cds.String",
+          "length": 40
+        },
+        "FmCountry": {
+          "type": "cds.String",
+          "length": 40
+        },
+        "FmLatitude": {
+          "type": "cds.String",
+          "length": 40
+        },
+        "FmLongitude": {
+          "type": "cds.String",
+          "length": 40
+        },
+        "SourceFmID": {
+          "type": "cds.String",
+          "length": 16
+        },
+        "TechnicianID": {
+          "type": "cds.String",
+          "length": 4
+        },
+        "CreatedBy": {
+          "type": "cds.String",
+          "length": 40
+        },
+        "CreatedTimestamp": {
+          "type": "cds.DateTime"
+        },
+        "CURRENCY": {
+          "type": "cds.String",
+          "length": 3
+        },
+        "WATERFLOWUOM": {
+          "type": "cds.String",
+          "length": 12
+        },
+        "END_BRANCH": {
+          "type": "cds.String",
+          "length": 1
+        },
+        "Nav_ParentToChildFlowmeters": {
+          "doc": "Please add  an ON condition",
+          "type": "cds.Association",
+          "target": "h2o.ChildFlowmeters",
+          "cardinality": {
+            "max": "*"
+          },
+          "keys": []
+        }
+      }
+    },
+    "h2o.ChildFlowmeters": {
+      "kind": "entity",
+      "@cds.persistence.skip": true,
+      "elements": {
+        "FmID": {
+          "key": true,
+          "type": "cds.String",
+          "length": 16
+        },
+        "FmDesc": {
+          "type": "cds.String",
+          "length": 80
+        },
+        "FmType": {
+          "type": "cds.String",
+          "length": 40
+        },
+        "FmZone": {
+          "type": "cds.String",
+          "length": 40
+        },
+        "FmCity": {
+          "type": "cds.String",
+          "length": 40
+        },
+        "FmState": {
+          "type": "cds.String",
+          "length": 40
+        },
+        "FmCountry": {
+          "type": "cds.String",
+          "length": 40
+        },
+        "FmLatitude": {
+          "type": "cds.String",
+          "length": 40
+        },
+        "FmLongitude": {
+          "type": "cds.String",
+          "length": 40
+        },
+        "SourceFmID": {
+          "type": "cds.String",
+          "length": 16
+        },
+        "TechnicianID": {
+          "type": "cds.String",
+          "length": 4
+        },
+        "CreatedBy": {
+          "type": "cds.String",
+          "length": 40
+        },
+        "CreatedTimestamp": {
+          "type": "cds.DateTime"
+        },
+        "CURRENCY": {
+          "type": "cds.String",
+          "length": 3
+        },
+        "WATERFLOWUOM": {
+          "type": "cds.String",
+          "length": 12
+        },
+        "END_BRANCH": {
+          "type": "cds.String",
+          "length": 1
+        },
+        "Nav_ChildToMainFlowmeters": {
+          "doc": "Please add  an ON condition",
+          "type": "cds.Association",
+          "target": "h2o.Flowmeters",
+          "keys": []
+        }
+      }
+    },
+    "h2o.Technicians": {
+      "kind": "entity",
+      "@cds.persistence.skip": true,
+      "elements": {
+        "TechID": {
+          "key": true,
+          "type": "cds.String",
+          "length": 4
+        },
+        "TechFirstname": {
+          "type": "cds.String",
+          "length": 80
+        },
+        "TechLastname": {
+          "type": "cds.String",
+          "length": 80
+        },
+        "TechRole": {
+          "type": "cds.String",
+          "length": 80
+        },
+        "TechEmail": {
+          "type": "cds.String",
+          "length": 100
+        },
+        "TechMobile": {
+          "type": "cds.String",
+          "length": 80
+        },
+        "CreatedBy": {
+          "type": "cds.String",
+          "length": 40
+        },
+        "CreatedTimestamp": {
+          "type": "cds.DateTime"
+        }
+      }
+    },
+    "h2o.ConsumerMeters": {
+      "kind": "entity",
+      "@cds.persistence.skip": true,
+      "elements": {
+        "ConFmID": {
+          "key": true,
+          "type": "cds.String",
+          "length": 16
+        },
+        "ConFmType": {
+          "type": "cds.String",
+          "length": 40
+        },
+        "ConFirstname": {
+          "type": "cds.String",
+          "length": 80
+        },
+        "ConLastname": {
+          "type": "cds.String",
+          "length": 80
+        },
+        "ConAddress1": {
+          "type": "cds.String",
+          "length": 80
+        },
+        "ConAddress2": {
+          "type": "cds.String",
+          "length": 80
+        },
+        "ConFmZone": {
+          "type": "cds.String",
+          "length": 40
+        },
+        "ConFmCity": {
+          "type": "cds.String",
+          "length": 40
+        },
+        "ConFmState": {
+          "type": "cds.String",
+          "length": 40
+        },
+        "ConFmCountry": {
+          "type": "cds.String",
+          "length": 40
+        },
+        "ConHouseArea": {
+          "type": "cds.String",
+          "length": 16
+        },
+        "ConHouseAreaUoM": {
+          "type": "cds.String",
+          "length": 6
+        },
+        "ConHouseNoOfMem": {
+          "type": "cds.String",
+          "length": 6
+        },
+        "AccumCons": {
+          "type": "cds.Decimal",
+          "precision": 10,
+          "scale": 2
+        },
+        "AccumConsUoM": {
+          "type": "cds.String",
+          "length": 6
+        },
+        "WaterQuality": {
+          "type": "cds.String",
+          "length": 20
+        },
+        "SourceFmID": {
+          "type": "cds.String",
+          "length": 16
+        },
+        "CreatedBy": {
+          "type": "cds.String",
+          "length": 40
+        },
+        "CreatedTimestamp": {
+          "type": "cds.DateTime"
+        }
+      }
+    },
+    "h2o.NewCustAdditions": {
+      "kind": "entity",
+      "@cds.persistence.skip": true,
+      "elements": {
+        "CustAddKey": {
+          "key": true,
+          "type": "cds.String",
+          "length": 16
+        },
+        "Board": {
+          "type": "cds.String",
+          "length": 80
+        },
+        "Zone": {
+          "type": "cds.String",
+          "length": 40
+        },
+        "City": {
+          "type": "cds.String",
+          "length": 40
+        },
+        "State": {
+          "type": "cds.String",
+          "length": 40
+        },
+        "Country": {
+          "type": "cds.String",
+          "length": 40
+        },
+        "Month": {
+          "type": "cds.String",
+          "length": 3
+        },
+        "Year": {
+          "type": "cds.String",
+          "length": 4
+        },
+        "NewCustomerCount": {
+          "type": "cds.Decimal",
+          "precision": 10,
+          "scale": 0
+        },
+        "RevIncrease": {
+          "type": "cds.Decimal",
+          "precision": 10,
+          "scale": 2
+        },
+        "Currency": {
+          "type": "cds.String",
+          "length": 3
+        },
+        "CreatedBy": {
+          "type": "cds.String",
+          "length": 40
+        },
+        "CreatedTimestamp": {
+          "type": "cds.DateTime"
+        }
+      }
+    },
+    "h2o.PhysicalLeakage": {
+      "kind": "entity",
+      "@cds.persistence.skip": true,
+      "elements": {
+        "LeakageKey": {
+          "key": true,
+          "type": "cds.String",
+          "length": 16
+        },
+        "Board": {
+          "type": "cds.String",
+          "length": 80
+        },
+        "Zone": {
+          "type": "cds.String",
+          "length": 40
+        },
+        "City": {
+          "type": "cds.String",
+          "length": 40
+        },
+        "State": {
+          "type": "cds.String",
+          "length": 40
+        },
+        "Country": {
+          "type": "cds.String",
+          "length": 40
+        },
+        "Month": {
+          "type": "cds.String",
+          "length": 3
+        },
+        "Year": {
+          "type": "cds.String",
+          "length": 4
+        },
+        "DetectedLeaksCount": {
+          "type": "cds.Decimal",
+          "precision": 10,
+          "scale": 0
+        },
+        "FixedLeaksCount": {
+          "type": "cds.Decimal",
+          "precision": 10,
+          "scale": 0
+        },
+        "SavedWater": {
+          "type": "cds.Decimal",
+          "precision": 10,
+          "scale": 2
+        },
+        "SavedWaterUoM": {
+          "type": "cds.String",
+          "length": 6
+        },
+        "NewCustomerCount": {
+          "type": "cds.Decimal",
+          "precision": 10,
+          "scale": 0
+        },
+        "RevIncrease": {
+          "type": "cds.Decimal",
+          "precision": 10,
+          "scale": 2
+        },
+        "Currency": {
+          "type": "cds.String",
+          "length": 3
+        },
+        "CreatedBy": {
+          "type": "cds.String",
+          "length": 40
+        },
+        "CreatedTimestamp": {
+          "type": "cds.DateTime"
+        }
+      }
+    },
+    "h2o.Flowvalues": {
+      "kind": "entity",
+      "@cds.persistence.skip": true,
+      "elements": {
+        "ID": {
+          "key": true,
+          "type": "cds.String",
+          "length": 40,
+          "@sap.filterable": "false"
+        },
+        "C_TIMESTAMP": {
+          "type": "cds.DateTime"
+        },
+        "C_FLOWMETERID": {
+          "type": "cds.String",
+          "length": 16
+        },
+        "C_FLOWVALUE": {
+          "type": "cds.Decimal",
+          "precision": 10,
+          "scale": 2
+        }
+      }
+    },
+    "h2o.H2OConLeakageData": {
+      "kind": "entity",
+      "@cds.persistence.skip": true,
+      "elements": {
+        "FmID": {
+          "key": true,
+          "type": "cds.String",
+          "length": 16,
+          "@sap.label": "Flowmeter"
+        },
+        "Timestamp": {
+          "key": true,
+          "type": "cds.DateTime",
+          "@sap.label": "Timestamp"
+        },
+        "FmDesc": {
+          "type": "cds.String",
+          "length": 80,
+          "@sap.label": "Flowmeter Desc"
+        },
+        "FmType": {
+          "type": "cds.String",
+          "length": 40,
+          "@sap.label": "Type"
+        },
+        "FmZone": {
+          "type": "cds.String",
+          "length": 40,
+          "@sap.label": "Zone"
+        },
+        "FmCity": {
+          "type": "cds.String",
+          "length": 40,
+          "@sap.label": "City"
+        },
+        "FmState": {
+          "type": "cds.String",
+          "length": 40,
+          "@sap.label": "State"
+        },
+        "FmCountry": {
+          "type": "cds.String",
+          "length": 40,
+          "@sap.label": "Country"
+        },
+        "FmLatitude": {
+          "type": "cds.String",
+          "length": 40,
+          "@sap.label": "Latitude"
+        },
+        "FmLongitude": {
+          "type": "cds.String",
+          "length": 40,
+          "@sap.label": "Longitude"
+        },
+        "SourceFmID": {
+          "type": "cds.String",
+          "length": 16,
+          "@sap.label": "SourceFmID"
+        },
+        "TechnicianID": {
+          "type": "cds.String",
+          "length": 4,
+          "@sap.label": "TechnicianID"
+        },
+        "Currency": {
+          "type": "cds.String",
+          "length": 3,
+          "@sap.semantics": "currency-code",
+          "@sap.label": "Currency"
+        },
+        "WaterFlowUoM": {
+          "type": "cds.String",
+          "length": 12,
+          "@sap.semantics": "unit-of-measure",
+          "@sap.label": "WaterFlowUoM"
+        },
+        "Month": {
+          "type": "cds.String",
+          "length": 12,
+          "@sap.label": "Month"
+        },
+        "Date": {
+          "type": "cds.String",
+          "length": 12,
+          "@sap.label": "Date"
+        },
+        "Supply": {
+          "type": "cds.Decimal",
+          "precision": 10,
+          "scale": 2,
+          "@sap.label": "Supply",
+          "@sap.unit": "WaterFlowUoM"
+        },
+        "Consumption": {
+          "type": "cds.Double",
+          "@sap.label": "Consumption",
+          "@sap.unit": "WaterFlowUoM"
+        },
+        "Leakage": {
+          "type": "cds.Double",
+          "@sap.label": "Leakage",
+          "@sap.unit": "WaterFlowUoM"
+        },
+        "LeakPercentage": {
+          "type": "cds.Decimal",
+          "precision": 34,
+          "scale": 2,
+          "@sap.label": "LeakPercentage"
+        },
+        "RevenueLoss": {
+          "type": "cds.Double",
+          "@sap.label": "RevenueLoss",
+          "@sap.unit": "Currency"
+        }
+      }
+    },
+    "h2o.H2OLatestLeakageData": {
+      "kind": "entity",
+      "@cds.persistence.skip": true,
+      "elements": {
+        "FmID": {
+          "key": true,
+          "type": "cds.String",
+          "length": 16,
+          "@sap.label": "FmID"
+        },
+        "Timestamp": {
+          "type": "cds.DateTime",
+          "@sap.label": "Timestamp"
+        },
+        "FmDesc": {
+          "type": "cds.String",
+          "length": 80,
+          "@sap.label": "FmDesc"
+        },
+        "FmType": {
+          "type": "cds.String",
+          "length": 40,
+          "@sap.label": "FmType"
+        },
+        "FmZone": {
+          "type": "cds.String",
+          "length": 40,
+          "@sap.label": "FmZone"
+        },
+        "FmCity": {
+          "type": "cds.String",
+          "length": 40,
+          "@sap.label": "FmCity"
+        },
+        "FmState": {
+          "type": "cds.String",
+          "length": 40,
+          "@sap.label": "FmState"
+        },
+        "FmCountry": {
+          "type": "cds.String",
+          "length": 40,
+          "@sap.label": "FmCountry"
+        },
+        "FmLatitude": {
+          "type": "cds.String",
+          "length": 40,
+          "@sap.label": "FmLatitude"
+        },
+        "FmLongitude": {
+          "type": "cds.String",
+          "length": 40,
+          "@sap.label": "FmLongitude"
+        },
+        "SourceFmID": {
+          "type": "cds.String",
+          "length": 16,
+          "@sap.label": "SourceFmID"
+        },
+        "TechnicianID": {
+          "type": "cds.String",
+          "length": 4,
+          "@sap.label": "TechnicianID"
+        },
+        "Currency": {
+          "type": "cds.String",
+          "length": 3,
+          "@sap.label": "Currency"
+        },
+        "WaterFlowUoM": {
+          "type": "cds.String",
+          "length": 12,
+          "@sap.label": "WaterFlowUoM"
+        },
+        "Supply": {
+          "type": "cds.Double",
+          "@sap.label": "Supply"
+        },
+        "Consumption": {
+          "type": "cds.Double",
+          "@sap.label": "Consumption"
+        },
+        "Leakage": {
+          "type": "cds.Double",
+          "@sap.label": "Leakage"
+        },
+        "LeakPercentage": {
+          "type": "cds.Decimal",
+          "precision": 34,
+          "scale": 2,
+          "@sap.label": "LeakPercentage"
+        },
+        "RevenueLoss": {
+          "type": "cds.Double",
+          "@sap.label": "RevenueLoss"
+        }
+      }
+    },
+    "h2o.H2OFlowmeterData": {
+      "kind": "entity",
+      "@cds.persistence.skip": true,
+      "elements": {
+        "FmID": {
+          "key": true,
+          "type": "cds.String",
+          "length": 16,
+          "@sap.label": "Flowmeter ID"
+        },
+        "Timestamp": {
+          "type": "cds.DateTime",
+          "@sap.label": "Timestamp"
+        },
+        "FmDesc": {
+          "type": "cds.String",
+          "length": 80,
+          "@sap.label": "FmDesc"
+        },
+        "FmType": {
+          "type": "cds.String",
+          "length": 40,
+          "@sap.label": "FmType"
+        },
+        "FmZone": {
+          "type": "cds.String",
+          "length": 40,
+          "@sap.label": "FmZone"
+        },
+        "FmCity": {
+          "type": "cds.String",
+          "length": 40,
+          "@sap.label": "FmCity"
+        },
+        "FmState": {
+          "type": "cds.String",
+          "length": 40,
+          "@sap.label": "FmState"
+        },
+        "FmCountry": {
+          "type": "cds.String",
+          "length": 40,
+          "@sap.label": "FmCountry"
+        },
+        "FmLatitude": {
+          "type": "cds.String",
+          "length": 40,
+          "@sap.label": "FmLatitude"
+        },
+        "FmLongitude": {
+          "type": "cds.String",
+          "length": 40,
+          "@sap.label": "FmLongitude"
+        },
+        "SourceFmID": {
+          "type": "cds.String",
+          "length": 16,
+          "@sap.label": "SourceFmID"
+        },
+        "TechnicianID": {
+          "type": "cds.String",
+          "length": 4,
+          "@sap.label": "TechnicianID"
+        },
+        "Currency": {
+          "type": "cds.String",
+          "length": 3,
+          "@sap.semantics": "currency-code",
+          "@sap.label": "Currency"
+        },
+        "WaterFlowUoM": {
+          "type": "cds.String",
+          "length": 12,
+          "@sap.semantics": "unit-of-measure",
+          "@sap.label": "WaterFlowUoM"
+        },
+        "SourceFmDesc": {
+          "type": "cds.String",
+          "length": 80,
+          "@sap.label": "SourceFmDesc"
+        },
+        "SourceFmLatitude": {
+          "type": "cds.String",
+          "length": 40,
+          "@sap.label": "SourceFmLatitude"
+        },
+        "SourceFmLongitude": {
+          "type": "cds.String",
+          "length": 40,
+          "@sap.label": "SourceFmLongitude"
+        },
+        "Supply": {
+          "type": "cds.Double",
+          "@sap.label": "Supply",
+          "@sap.unit": "WaterFlowUoM"
+        },
+        "Consumption": {
+          "type": "cds.Double",
+          "@sap.label": "Consumption",
+          "@sap.unit": "WaterFlowUoM"
+        },
+        "Leakage": {
+          "type": "cds.Double",
+          "@sap.label": "Leakage",
+          "@sap.unit": "WaterFlowUoM"
+        },
+        "LeakPercentage": {
+          "type": "cds.Decimal",
+          "precision": 34,
+          "scale": 2,
+          "@sap.label": "LeakPercentage"
+        },
+        "RevenueLoss": {
+          "type": "cds.Double",
+          "@sap.label": "RevenueLoss",
+          "@sap.unit": "Currency"
+        }
+      }
+    },
+    "h2o.H2OCityNewConnections": {
+      "kind": "entity",
+      "@cds.persistence.skip": true,
+      "elements": {
+        "City": {
+          "key": true,
+          "type": "cds.String",
+          "length": 40,
+          "@sap.label": "City"
+        },
+        "Currency": {
+          "type": "cds.String",
+          "length": 3,
+          "@sap.label": "Currency"
+        },
+        "NewCustomerCount": {
+          "type": "cds.Decimal",
+          "precision": 10,
+          "scale": 0,
+          "@sap.label": "New Customer Count"
+        },
+        "RevIncrease": {
+          "type": "cds.Decimal",
+          "precision": 10,
+          "scale": 2,
+          "@sap.label": "Rev Increase"
+        }
+      }
+    },
+    "h2o.H2OZoneNewConnections": {
+      "kind": "entity",
+      "@cds.persistence.skip": true,
+      "elements": {
+        "Board": {
+          "key": true,
+          "type": "cds.String",
+          "length": 80,
+          "@sap.label": "Board"
+        },
+        "Zone": {
+          "key": true,
+          "type": "cds.String",
+          "length": 40,
+          "@sap.label": "Zone"
+        },
+        "Currency": {
+          "type": "cds.String",
+          "length": 3,
+          "@sap.label": "Currency"
+        },
+        "NewCustomerCount": {
+          "type": "cds.Decimal",
+          "precision": 10,
+          "scale": 0,
+          "@sap.label": "New Customer Accounts"
+        },
+        "RevIncrease": {
+          "type": "cds.Decimal",
+          "precision": 10,
+          "scale": 2,
+          "@sap.label": "Revenue Increase"
+        }
+      }
+    },
+    "h2o.H2OCityLeakages": {
+      "kind": "entity",
+      "@cds.persistence.skip": true,
+      "elements": {
+        "City": {
+          "key": true,
+          "type": "cds.String",
+          "length": 40,
+          "@sap.label": "City"
+        },
+        "SavedWaterUoM": {
+          "type": "cds.String",
+          "length": 6,
+          "@sap.label": "SavedWaterUoM"
+        },
+        "Currency": {
+          "type": "cds.String",
+          "length": 3,
+          "@sap.label": "Currency"
+        },
+        "DetectedLeaksCount": {
+          "type": "cds.Decimal",
+          "precision": 10,
+          "scale": 0,
+          "@sap.label": "DetectedLeaksCount"
+        },
+        "FixedLeaksCount": {
+          "type": "cds.Decimal",
+          "precision": 10,
+          "scale": 0,
+          "@sap.label": "FixedLeaksCount"
+        },
+        "SavedWater": {
+          "type": "cds.Decimal",
+          "precision": 10,
+          "scale": 2,
+          "@sap.label": "SavedWater"
+        },
+        "SavedRevenue": {
+          "type": "cds.Decimal",
+          "precision": 20,
+          "scale": 0,
+          "@sap.label": "SavedRevenue"
+        }
+      }
+    },
+    "h2o.H2OAdminNewConnections": {
+      "kind": "entity",
+      "@cds.persistence.skip": true,
+      "elements": {
+        "ID": {
+          "key": true,
+          "type": "cds.String",
+          "length": 40,
+          "@sap.filterable": "false"
+        },
+        "Board": {
+          "type": "cds.String",
+          "length": 80,
+          "@sap.label": "Board"
+        },
+        "Zone": {
+          "type": "cds.String",
+          "length": 40,
+          "@sap.label": "Zone"
+        },
+        "City": {
+          "type": "cds.String",
+          "length": 40,
+          "@sap.label": "City"
+        },
+        "State": {
+          "type": "cds.String",
+          "length": 40,
+          "@sap.label": "State"
+        },
+        "Country": {
+          "type": "cds.String",
+          "length": 40,
+          "@sap.label": "Country"
+        },
+        "Month": {
+          "type": "cds.String",
+          "length": 3,
+          "@sap.label": "Month"
+        },
+        "Year": {
+          "type": "cds.String",
+          "length": 4,
+          "@sap.label": "Year"
+        },
+        "Currency": {
+          "type": "cds.String",
+          "length": 3,
+          "@sap.semantics": "currency-code",
+          "@sap.label": "Currency"
+        },
+        "CustAddKey": {
+          "type": "cds.String",
+          "length": 16,
+          "@sap.label": "CustAddKey"
+        },
+        "NewCustomerCount": {
+          "type": "cds.Decimal",
+          "precision": 10,
+          "scale": 0,
+          "@sap.label": "New Customer Accounts"
+        },
+        "RevIncrease": {
+          "type": "cds.Decimal",
+          "precision": 10,
+          "scale": 2,
+          "@sap.label": "Net Revenue Increase",
+          "@sap.unit": "Currency"
+        }
+      }
+    },
+    "h2o.H2OLatestFlowValues": {
+      "kind": "entity",
+      "@cds.persistence.skip": true,
+      "elements": {
+        "ID": {
+          "key": true,
+          "type": "cds.String",
+          "length": 40,
+          "@sap.filterable": "false"
+        },
+        "FmID": {
+          "type": "cds.String",
+          "length": 16,
+          "@sap.label": "Flowmeter ID"
+        },
+        "Timestamp": {
+          "type": "cds.DateTime",
+          "@sap.label": "Timestamp"
+        },
+        "FmDesc": {
+          "type": "cds.String",
+          "length": 80,
+          "@sap.label": "FmDesc"
+        },
+        "FmType": {
+          "type": "cds.String",
+          "length": 40,
+          "@sap.label": "FmType"
+        },
+        "FmZone": {
+          "type": "cds.String",
+          "length": 40,
+          "@sap.label": "FmZone"
+        },
+        "FmCity": {
+          "type": "cds.String",
+          "length": 40,
+          "@sap.label": "FmCity"
+        },
+        "FmState": {
+          "type": "cds.String",
+          "length": 40,
+          "@sap.label": "FmState"
+        },
+        "FmCountry": {
+          "type": "cds.String",
+          "length": 40,
+          "@sap.label": "FmCountry"
+        },
+        "FmLatitude": {
+          "type": "cds.String",
+          "length": 40,
+          "@sap.label": "FmLatitude"
+        },
+        "FmLongitude": {
+          "type": "cds.String",
+          "length": 40,
+          "@sap.label": "FmLongitude"
+        },
+        "SourceFmID": {
+          "type": "cds.String",
+          "length": 16,
+          "@sap.label": "SourceFmID"
+        },
+        "TechnicianID": {
+          "type": "cds.String",
+          "length": 4,
+          "@sap.label": "TechnicianID"
+        },
+        "Currency": {
+          "type": "cds.String",
+          "length": 3,
+          "@sap.semantics": "currency-code",
+          "@sap.label": "Currency"
+        },
+        "WaterFlowUoM": {
+          "type": "cds.String",
+          "length": 12,
+          "@sap.semantics": "unit-of-measure",
+          "@sap.label": "WaterFlowUoM"
+        },
+        "SourceFmDesc": {
+          "type": "cds.String",
+          "length": 80,
+          "@sap.label": "SourceFmDesc"
+        },
+        "SourceFmLatitude": {
+          "type": "cds.String",
+          "length": 40,
+          "@sap.label": "SourceFmLatitude"
+        },
+        "SourceFmLongitude": {
+          "type": "cds.String",
+          "length": 40,
+          "@sap.label": "SourceFmLongitude"
+        },
+        "Supply": {
+          "type": "cds.Double",
+          "@sap.label": "Supply",
+          "@sap.unit": "WaterFlowUoM"
+        },
+        "Consumption": {
+          "type": "cds.Double",
+          "@sap.label": "Consumption",
+          "@sap.unit": "WaterFlowUoM"
+        },
+        "Leakage": {
+          "type": "cds.Double",
+          "@sap.label": "Leakage",
+          "@sap.unit": "WaterFlowUoM"
+        },
+        "LeakPercentage": {
+          "type": "cds.Decimal",
+          "precision": 34,
+          "scale": 2,
+          "@sap.label": "LeakPercentage"
+        },
+        "RevenueLoss": {
+          "type": "cds.Double",
+          "@sap.label": "RevenueLoss",
+          "@sap.unit": "Currency"
+        }
+      }
+    },
+    "h2o.H2OConsolidatedFlowValues": {
+      "kind": "entity",
+      "@cds.persistence.skip": true,
+      "elements": {
+        "ID": {
+          "key": true,
+          "type": "cds.String",
+          "length": 40,
+          "@sap.filterable": "false"
+        },
+        "FmID": {
+          "type": "cds.String",
+          "length": 16,
+          "@sap.label": "Flowmeter"
+        },
+        "Timestamp": {
+          "type": "cds.DateTime",
+          "@sap.label": "Timestamp"
+        },
+        "FmDesc": {
+          "type": "cds.String",
+          "length": 80,
+          "@sap.label": "Flowmeter Desc"
+        },
+        "FmType": {
+          "type": "cds.String",
+          "length": 40,
+          "@sap.label": "Type"
+        },
+        "FmZone": {
+          "type": "cds.String",
+          "length": 40,
+          "@sap.label": "Zone"
+        },
+        "FmCity": {
+          "type": "cds.String",
+          "length": 40,
+          "@sap.label": "City"
+        },
+        "FmState": {
+          "type": "cds.String",
+          "length": 40,
+          "@sap.label": "State"
+        },
+        "FmCountry": {
+          "type": "cds.String",
+          "length": 40,
+          "@sap.label": "Country"
+        },
+        "FmLatitude": {
+          "type": "cds.String",
+          "length": 40,
+          "@sap.label": "Latitude"
+        },
+        "FmLongitude": {
+          "type": "cds.String",
+          "length": 40,
+          "@sap.label": "Longitude"
+        },
+        "SourceFmID": {
+          "type": "cds.String",
+          "length": 16,
+          "@sap.label": "SourceFmID"
+        },
+        "TechnicianID": {
+          "type": "cds.String",
+          "length": 4,
+          "@sap.label": "TechnicianID"
+        },
+        "Currency": {
+          "type": "cds.String",
+          "length": 3,
+          "@sap.semantics": "currency-code",
+          "@sap.label": "Currency"
+        },
+        "WaterFlowUoM": {
+          "type": "cds.String",
+          "length": 12,
+          "@sap.semantics": "unit-of-measure",
+          "@sap.label": "WaterFlowUoM"
+        },
+        "Month": {
+          "type": "cds.String",
+          "length": 12,
+          "@sap.label": "Month"
+        },
+        "Date": {
+          "type": "cds.String",
+          "length": 12,
+          "@sap.label": "Date"
+        },
+        "Supply": {
+          "type": "cds.Decimal",
+          "precision": 10,
+          "scale": 2,
+          "@sap.label": "Supply",
+          "@sap.unit": "WaterFlowUoM"
+        },
+        "Consumption": {
+          "type": "cds.Double",
+          "@sap.label": "Consumption",
+          "@sap.unit": "WaterFlowUoM"
+        },
+        "Leakage": {
+          "type": "cds.Double",
+          "@sap.label": "Leakage",
+          "@sap.unit": "WaterFlowUoM"
+        },
+        "LeakPercentage": {
+          "type": "cds.Decimal",
+          "precision": 34,
+          "scale": 2,
+          "@sap.label": "LeakPercentage"
+        },
+        "RevenueLoss": {
+          "type": "cds.Double",
+          "@sap.label": "RevenueLoss",
+          "@sap.unit": "Currency"
+        }
+      }
+    }
+  }
+}
